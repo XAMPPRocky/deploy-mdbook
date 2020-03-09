@@ -7,7 +7,7 @@ import deployToPages, * as gitHubPagesDeploy from 'github-pages-deploy-action'
 export async function run(): Promise<void> {
   try {
     const workspace =
-      core.getInput('workspace') || process.env['GITHUB_WORKSPACE']
+      core.getInput('workspace') || process.env['GITHUB_WORKSPACE'] || '.'
     const execOptions = {cwd: workspace}
     const gitHubToken = core.getInput('token', {required: true})
     const mdbookPath = getGitHubRelease(

@@ -11067,13 +11067,13 @@ const github_pages_deploy_action_1 = __importDefault(__webpack_require__(922));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const workspace = process_1.default.env['GITHUB_WORKSPACE'] || core.getInput('workspace');
+            const workspace = core.getInput('workspace') || process_1.default.env['GITHUB_WORKSPACE'] || '.';
             const execOptions = { cwd: workspace };
             const gitHubToken = core.getInput('token', { required: true });
             const mdbookPath = get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', /apple/, gitHubToken);
             const deployOptions = {
                 repositoryName: core.getInput('repository', { required: true }),
-                branch: 'gh-pages',
+                branch: core.getInput('branch') || 'gh-pages',
                 folder: 'book',
                 workspace
             };
