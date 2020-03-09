@@ -11070,7 +11070,7 @@ function run() {
             const workspace = process_1.default.env['GITHUB_WORKSPACE'] || core.getInput('workspace');
             const execOptions = { cwd: workspace };
             const gitHubToken = core.getInput('token', { required: true });
-            const mdbookPath = yield get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', /apple/, gitHubToken);
+            const mdbookPath = get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', /apple/, gitHubToken);
             const deployOptions = {
                 repositoryName: core.getInput('repository', { required: true }),
                 branch: 'gh-pages',
