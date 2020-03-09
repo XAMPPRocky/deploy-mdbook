@@ -19,6 +19,8 @@ jobs:
     steps:
         - uses: actions/checkout@v1
         - uses: ./
+          env:
+            DEBUG_DEPLOY_ACTION: 1
           with:
               token: ${{ secrets.GITHUB_TOKEN }}
               repository: rust-lang/project-group-template
