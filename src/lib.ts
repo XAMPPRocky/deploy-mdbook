@@ -1,5 +1,4 @@
 import process from 'process'
-import path from 'path'
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
 import {getGitHubRelease} from 'get-github-release'
@@ -11,7 +10,7 @@ export async function run(): Promise<void> {
       process.env['GITHUB_WORKSPACE'] || core.getInput('workspace')
     const execOptions = {cwd: workspace}
     const gitHubToken = core.getInput('token', {required: true})
-    const mdbookPath = await getGitHubRelease(
+    const mdbookPath = getGitHubRelease(
       'rust-lang',
       'mdbook',
       /apple/,
