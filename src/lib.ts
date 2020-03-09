@@ -19,7 +19,7 @@ export async function run(): Promise<void> {
 
     const deployOptions: gitHubPagesDeploy.actionInterface = {
       repositoryName: core.getInput('repository', {required: true}),
-      branch: 'gh-pages',
+      branch: core.getInput('branch') || 'gh-pages',
       folder: 'book',
       workspace
     }
