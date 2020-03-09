@@ -1,4 +1,4 @@
-import {wait} from '../src/wait'
+import {run} from '../src/lib'
 import * as process from 'process'
 import * as cp from 'child_process'
 import * as path from 'path'

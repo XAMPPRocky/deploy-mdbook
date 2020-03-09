@@ -1,0 +1,34 @@
+import process from 'process'
+import path from 'path'
+import * as core from '@actions/core'
+import * as exec from '@actions/exec'
+import {getGitHubRelease} from 'get-github-release'
+import deployToPages, * as gitHubPagesDeploy from 'github-pages-deploy-action'
+
+export async function run(): Promise<void> {
+  try {
+    const workspace =
+      process.env['GITHUB_WORKSPACE'] || core.getInput('workspace')
+    const execOptions = {cwd: workspace}
+    const gitHubToken = core.getInput('token', {required: true})
+    const mdbookPath = await getGitHubRelease(
+      'rust-lang',
+      'mdbook',
+      /apple/,
+      gitHubToken
+    )
+
+    const deployOptions: gitHubPagesDeploy.actionInterface = {
+      repositoryName: core.getInput('repository', {required: true}),
+      branch: 'gh-pages',
+      folder: 'book',
+      workspace
+    }
+
+    await exec.exec(mdbookPath, ['build'], execOptions)
+
+    await deployToPages(deployOptions)
+  } catch (error) {
+    core.setFailed(error.message)
+  }
+}

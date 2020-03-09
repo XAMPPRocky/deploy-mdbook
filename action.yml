@@ -1,10 +1,17 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: Deploy MDBook
+description: Easily build and deploy your mdbook projects onto github pages.
+branding:
+  icon: book
+  color: blue
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  repository:
+    description: The github reposistory in `owner/repo` format.
+    required: true
+  workspace:
+    description: The working directory for the action. Default $GITHUB_WORKSPACE
+  token:
+    description: The GitHub token for deploying mdbook.
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'

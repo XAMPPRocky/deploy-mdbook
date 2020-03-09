@@ -1,10 +1,11 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
+  "name": "deploy-mdbook",
+  "version": "1.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "Automatically build and deploy mdbook",
   "main": "lib/main.js",
   "scripts": {
+    "watch": "tsc -w",
     "build": "tsc",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
@@ -22,15 +23,18 @@
     "node",
     "setup"
   ],
-  "author": "YourNameOrOrganization",
+  "author": "XAMPPRocky",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.0"
+    "@actions/core": "^1.2.2",
+    "@actions/exec": "=1.0.2",
+    "get-github-release": "^1.0.4",
+    "github-pages-deploy-action": "^3.3.2"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.23",
-    "@types/node": "^12.7.12",
-    "@typescript-eslint/parser": "^2.8.0",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.29",
+    "@typescript-eslint/parser": "^2.21.0",
     "@zeit/ncc": "^0.20.5",
     "eslint": "^5.16.0",
     "eslint-plugin-github": "^2.0.0",
@@ -39,7 +43,7 @@
     "jest-circus": "^24.9.0",
     "js-yaml": "^3.13.1",
     "prettier": "^1.19.1",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.6.4"
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.8.3"
   }
 }
