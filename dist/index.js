@@ -11071,6 +11071,7 @@ function run() {
             const execOptions = { cwd: workspace };
             const gitHubToken = core.getInput('token', { required: true });
             const mdbookPath = get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', /apple/, gitHubToken);
+            core.info(`Installed mdbook to ${mdbookPath}`);
             const deployOptions = {
                 repositoryName: core.getInput('repository', { required: true }),
                 branch: core.getInput('branch') || 'gh-pages',
@@ -11078,6 +11079,7 @@ function run() {
                 workspace
             };
             yield exec.exec(mdbookPath, ['build'], execOptions);
+            core.info('Built book');
             yield github_pages_deploy_action_1.default(deployOptions);
         }
         catch (error) {

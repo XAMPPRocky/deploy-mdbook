@@ -17,7 +17,7 @@ export async function run(): Promise<void> {
       gitHubToken
     )
 
-    core.setInfo(`Installed mdbook to ${mdbookPath}`)
+    core.info(`Installed mdbook to ${mdbookPath}`)
 
     const deployOptions: gitHubPagesDeploy.actionInterface = {
       repositoryName: core.getInput('repository', {required: true}),
@@ -27,7 +27,7 @@ export async function run(): Promise<void> {
     }
 
     await exec.exec(mdbookPath, ['build'], execOptions)
-    core.setInfo('Built book')
+    core.info('Built book')
 
     await deployToPages(deployOptions)
   } catch (error) {
