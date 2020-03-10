@@ -18,9 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v1
+        - run: git clone git@github.com:rust-lang/book.git /tmp/book
         - uses: ./
           env:
             DEBUG_DEPLOY_ACTION: 1
           with:
-              token: ${{ secrets.GITHUB_TOKEN }}
-              repository: rust-lang/project-group-template
+            workspace: /tmp/book
+            branch: ci-book
+            token: ${{ secrets.GITHUB_TOKEN }}
+            repository: rust-lang/project-group-template
