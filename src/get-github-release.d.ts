@@ -7,5 +7,5 @@ declare module 'get-github-release' {
     matches: RegExp,
     token: string,
     installPath?: string
-  ): string
+  ): Promise<string>
 }

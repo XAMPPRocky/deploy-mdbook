@@ -11070,7 +11070,7 @@ function run() {
             const workspace = core.getInput('workspace') || process_1.default.env['GITHUB_WORKSPACE'] || '.';
             const execOptions = { cwd: workspace };
             const gitHubToken = core.getInput('token', { required: true });
-            const mdbookPath = get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', /apple/, gitHubToken);
+            const mdbookPath = yield get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', /apple/, gitHubToken);
             core.info(`Installed mdbook to ${mdbookPath}`);
             const deployOptions = {
                 repositoryName: core.getInput('repository', { required: true }),

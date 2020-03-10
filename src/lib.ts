@@ -10,7 +10,7 @@ export async function run(): Promise<void> {
       core.getInput('workspace') || process.env['GITHUB_WORKSPACE'] || '.'
     const execOptions = {cwd: workspace}
     const gitHubToken = core.getInput('token', {required: true})
-    const mdbookPath = getGitHubRelease(
+    const mdbookPath = await getGitHubRelease(
       'rust-lang',
       'mdbook',
       /apple/,
