@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v1
-        - run: git clone git@github.com:rust-lang/book.git /tmp/book
+        - run: git clone https://github.com/rust-lang/book.git /tmp/book
         - uses: ./
           env:
             DEBUG_DEPLOY_ACTION: 1
