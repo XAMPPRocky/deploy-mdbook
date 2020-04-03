@@ -29,7 +29,7 @@
     "@actions/core": "^1.2.2",
     "@actions/exec": "=1.0.2",
     "get-github-release": "^1.0.4",
-    "github-pages-deploy-action": "^3.3.2"
+    "github-pages-deploy-action": "^3.4.5"
   },
   "devDependencies": {
     "@types/jest": "^24.9.1",
