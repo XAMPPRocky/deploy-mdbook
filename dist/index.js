@@ -11086,7 +11086,7 @@ function run() {
             core.info(`Installed mdbook to ${mdbookPath}`);
             const deployOptions = {
                 accessToken: gitHubToken,
-                repositoryName: core.getInput('repository', { required: true }),
+                repositoryName: core.getInput('repository') || undefined,
                 branch: core.getInput('branch') || 'gh-pages',
                 folder: 'book',
                 workspace

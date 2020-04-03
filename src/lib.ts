@@ -34,7 +34,7 @@ export async function run(): Promise<void> {
 
     const deployOptions: gitHubPagesDeploy.actionInterface = {
       accessToken: gitHubToken,
-      repositoryName: core.getInput('repository', {required: true}),
+      repositoryName: core.getInput('repository') || undefined,
       branch: core.getInput('branch') || 'gh-pages',
       folder: 'book',
       workspace
