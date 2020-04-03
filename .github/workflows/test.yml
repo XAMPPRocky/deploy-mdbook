@@ -21,8 +21,7 @@ jobs:
           with:
             persist-failure: true
         - uses: ./
-          env:
-            DEBUG_DEPLOY_ACTION: 1
           with:
             branch: gh-pages
+            repository: rust-lang/book
             token: ${{ secrets.GITHUB_TOKEN }}
