@@ -9,7 +9,7 @@ Pages. See [`actions.yml`] for configuration options.
 ```yaml
 - uses: XAMPPRocky/deploy-mdbook@v1
   with:
-    token: ${{ secrets.DEPLOY_KEY }}
+    token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Development
