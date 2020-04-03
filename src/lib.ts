@@ -3,7 +3,7 @@ import process from 'process'
 
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
-import {github} from '@actions/github'
+import {context} from '@actions/github'
 import {getGitHubRelease} from 'get-github-release'
 import deployToPages, * as gitHubPagesDeploy from 'github-pages-deploy-action'
 
@@ -33,7 +33,7 @@ export async function run(): Promise<void> {
 
     core.info(`Installed mdbook to ${mdbookPath}`)
 
-    const {repository} = github.context.payload
+    const {repository} = context.payload
 
     const repositoryInput = core.getInput('repository')
     const repositoryName = repositoryInput
