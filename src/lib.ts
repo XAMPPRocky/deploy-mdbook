@@ -33,6 +33,7 @@ export async function run(): Promise<void> {
     core.info(`Installed mdbook to ${mdbookPath}`)
 
     const deployOptions: gitHubPagesDeploy.actionInterface = {
+      accessToken: gitHubToken,
       repositoryName: core.getInput('repository', {required: true}),
       branch: core.getInput('branch') || 'gh-pages',
       folder: 'book',

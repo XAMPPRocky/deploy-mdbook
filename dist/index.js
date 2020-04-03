@@ -11085,6 +11085,7 @@ function run() {
             const mdbookPath = yield get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', regex, gitHubToken);
             core.info(`Installed mdbook to ${mdbookPath}`);
             const deployOptions = {
+                accessToken: gitHubToken,
                 repositoryName: core.getInput('repository', { required: true }),
                 branch: core.getInput('branch') || 'gh-pages',
                 folder: 'book',
