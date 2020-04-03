@@ -11059,6 +11059,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const os_1 = __importDefault(__webpack_require__(87));
 const process_1 = __importDefault(__webpack_require__(765));
 const core = __importStar(__webpack_require__(470));
 const exec = __importStar(__webpack_require__(986));
@@ -11070,7 +11071,18 @@ function run() {
             const workspace = core.getInput('workspace') || process_1.default.env['GITHUB_WORKSPACE'] || '.';
             const execOptions = { cwd: workspace };
             const gitHubToken = core.getInput('token', { required: true });
-            const mdbookPath = yield get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', /apple/, gitHubToken);
+            const platform = os_1.default.platform();
+            let regex;
+            if (platform === 'darwin') {
+                regex = /apple/;
+            }
+            else if (platform === 'win32') {
+                regex = /windows/;
+            }
+            else {
+                regex = /linux/;
+            }
+            const mdbookPath = yield get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', regex, gitHubToken);
             core.info(`Installed mdbook to ${mdbookPath}`);
             const deployOptions = {
                 repositoryName: core.getInput('repository', { required: true }),

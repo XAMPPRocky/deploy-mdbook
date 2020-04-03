@@ -1,4 +1,6 @@
+import os from 'os'
 import process from 'process'
+
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
 import {getGitHubRelease} from 'get-github-release'
@@ -10,10 +12,21 @@ export async function run(): Promise<void> {
       core.getInput('workspace') || process.env['GITHUB_WORKSPACE'] || '.'
     const execOptions = {cwd: workspace}
     const gitHubToken = core.getInput('token', {required: true})
+    const platform = os.platform()
+    let regex
+
+    if (platform === 'darwin') {
+      regex = /apple/
+    } else if (platform === 'win32') {
+      regex = /windows/
+    } else {
+      regex = /linux/
+    }
+
     const mdbookPath = await getGitHubRelease(
       'rust-lang',
       'mdbook',
-      /apple/,
+      regex,
       gitHubToken
     )
 
