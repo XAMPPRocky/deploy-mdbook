@@ -3,6 +3,7 @@ import process from 'process'
 
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
+import github from '@actions/github'
 import {getGitHubRelease} from 'get-github-release'
 import deployToPages, * as gitHubPagesDeploy from 'github-pages-deploy-action'
 
@@ -32,9 +33,18 @@ export async function run(): Promise<void> {
 
     core.info(`Installed mdbook to ${mdbookPath}`)
 
-    const deployOptions: gitHubPagesDeploy.actionInterface = {
+    const {repository} = github.context.payload
+
+    const repositoryInput = core.getInput('repository')
+    const repositoryName = repositoryInput
+      ? repositoryInput
+      : repository && repository.full_name
+      ? repository.full_name
+      : process.env.GITHUB_REPOSITORY
+
+    const deployOptions: gitHubPagesDeploy.ActionInterface = {
       accessToken: gitHubToken,
-      repositoryName: core.getInput('repository') || undefined,
+      repositoryName,
       branch: core.getInput('branch') || 'gh-pages',
       folder: 'book',
       workspace
