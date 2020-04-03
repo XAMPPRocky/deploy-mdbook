@@ -19,6 +19,7 @@ jobs:
     steps:
         - uses: actions/checkout@v1
         - run: git clone https://github.com/rust-lang/book.git /tmp/book
+        - run: mdbook init
         - uses: ./
           env:
             DEBUG_DEPLOY_ACTION: 1
