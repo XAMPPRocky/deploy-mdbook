@@ -12021,7 +12021,7 @@ const os_1 = __importDefault(__webpack_require__(87));
 const process_1 = __importDefault(__webpack_require__(765));
 const core = __importStar(__webpack_require__(470));
 const exec = __importStar(__webpack_require__(986));
-const github_1 = __importDefault(__webpack_require__(469));
+const github_1 = __webpack_require__(469);
 const get_github_release_1 = __webpack_require__(295);
 const github_pages_deploy_action_1 = __importDefault(__webpack_require__(922));
 function run() {
@@ -12043,7 +12043,7 @@ function run() {
             }
             const mdbookPath = yield get_github_release_1.getGitHubRelease('rust-lang', 'mdbook', regex, gitHubToken);
             core.info(`Installed mdbook to ${mdbookPath}`);
-            const { repository } = github_1.default.context.payload;
+            const { repository } = github_1.context.payload;
             const repositoryInput = core.getInput('repository');
             const repositoryName = repositoryInput
                 ? repositoryInput
