@@ -1,0 +1,6 @@
+[book]
+authors = ["Erin Power"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Example Book"
