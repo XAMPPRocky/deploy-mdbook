@@ -5,15 +5,9 @@ Pages. See [`actions.yml`] for configuration options.
 
 [`actions.yml`]: ./actions.yml
 
-## Example
-This example deploys the the [Rust forge](https://forge.rust-lang.org) to `gh-pages`.
-
 ```yaml
 - uses: XAMPPRocky/deploy-mdbook@v1
   with:
-    repository: rust-lang/rust-forge
-    # Note: using ${{ secrets.GITHUB_TOKEN }} won't work currently due to
-    # issues with GitHub, so you'll need to create your own deploy key.
     token: ${{ secrets.DEPLOY_KEY }}
 ```
 
