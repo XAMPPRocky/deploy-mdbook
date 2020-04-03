@@ -3,7 +3,7 @@ import process from 'process'
 
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
-import github from '@actions/github'
+import {github} from '@actions/github'
 import {getGitHubRelease} from 'get-github-release'
 import deployToPages, * as gitHubPagesDeploy from 'github-pages-deploy-action'
 
