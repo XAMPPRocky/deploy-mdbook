@@ -21,5 +21,4 @@ jobs:
         - uses: ./
           with:
             branch: gh-pages
-            repository: rust-lang/book
             token: ${{ secrets.GITHUB_TOKEN }}
