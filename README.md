@@ -5,6 +5,7 @@ Pages. See [`actions.yml`] for configuration options.
 
 [`actions.yml`]: ./actions.yml
 
+## Example
 ```yaml
 - uses: XAMPPRocky/deploy-mdbook@v1
   with:
