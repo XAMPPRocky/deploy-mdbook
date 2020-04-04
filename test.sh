@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+npm run all
+
 git clone "git@github.com:$REPO.git" ../repo
 
 GITHUB_WORKSPACE=../repo \

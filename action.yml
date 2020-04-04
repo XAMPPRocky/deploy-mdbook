@@ -10,6 +10,8 @@ inputs:
   repository:
     description: The github reposistory in `owner/repo` format.
     required: true
+  build_only:
+    description: Disable deployment.
   workspace:
     description: The working directory for the action. Default $GITHUB_WORKSPACE
   token:

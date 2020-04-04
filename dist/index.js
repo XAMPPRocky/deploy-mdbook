@@ -12059,7 +12059,9 @@ function run() {
             };
             yield exec.exec(mdbookPath, ['build'], execOptions);
             core.info('Built book');
-            yield github_pages_deploy_action_1.default(deployOptions);
+            if (!core.getInput('build_only')) {
+                yield github_pages_deploy_action_1.default(deployOptions);
+            }
         }
         catch (error) {
             core.setFailed(error.message);
