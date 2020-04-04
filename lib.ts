@@ -53,7 +53,9 @@ export async function run(): Promise<void> {
     await exec.exec(mdbookPath, ['build'], execOptions)
     core.info('Built book')
 
-    await deployToPages(deployOptions)
+    if (!core.getInput('build_only')) {
+      await deployToPages(deployOptions)
+    }
   } catch (error) {
     core.setFailed(error.message)
   }
