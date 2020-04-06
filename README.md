@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
       - uses: XAMPPRocky/deploy-mdbook@v1
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
