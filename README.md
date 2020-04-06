@@ -1,9 +1,9 @@
 # 📘 deploy-mdbook
 
-The `deploy-mdbook` action allows you to easily deploy your project to GitHub
-Pages. See [`actions.yml`] for configuration options.
+The `deploy-mdbook` action allows you to easily build and deploy your mdBook project to GitHub
+Pages. See [`action.yml`] for configuration options.
 
-[`actions.yml`]: ./actions.yml
+[`action.yml`]: ./action.yml
 
 ## Example
 ```yaml
