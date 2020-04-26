@@ -53,7 +53,12 @@ export async function run(): Promise<void> {
     await exec.exec(mdbookPath, ['build'], execOptions)
     core.info('Built book')
 
-    if (!core.getInput('build_only')) {
+    const shouldStop = core.getInput('build_only')
+    core.info(`Deciding to Deploy; 'build_only': ${shouldStop}`)
+
+    if (shouldStop) {
+      // Do nothing...
+    } else {
       await deployToPages(deployOptions)
     }
   } catch (error) {
