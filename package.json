@@ -30,7 +30,7 @@
     "@actions/exec": "=1.0.4",
     "@actions/github": "^2.1.1",
     "get-github-release": "^1.0.4",
-    "github-pages-deploy-action": "^3.4.8"
+    "github-pages-deploy-action": "^3.4.9"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
