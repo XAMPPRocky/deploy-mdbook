@@ -28,7 +28,7 @@
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/exec": "=1.0.4",
-    "@actions/github": "^2.1.1",
+    "@actions/github": "^2.2.0",
     "get-github-release": "^1.0.4",
     "github-pages-deploy-action": "^3.4.9"
   },
