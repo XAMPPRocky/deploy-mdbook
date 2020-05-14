@@ -33,7 +33,7 @@
     "github-pages-deploy-action": "^3.4.9"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.1",
+    "@types/jest": "^25.2.2",
     "@types/node": "^14.0.1",
     "@typescript-eslint/parser": "^2.33.0",
     "@zeit/ncc": "^0.22.1",
