@@ -84,6 +84,7 @@ function run() {
             const deployOptions = {
                 token: gitHubToken,
                 repositoryName,
+                hostname: 'github.com',
                 branch: core.getInput('branch') || 'gh-pages',
                 folder: 'book',
                 silent: false,
