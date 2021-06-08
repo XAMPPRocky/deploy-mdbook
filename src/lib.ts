@@ -43,7 +43,7 @@ export async function run(): Promise<void> {
       : process.env.GITHUB_REPOSITORY
 
     const deployOptions = {
-      accessToken: gitHubToken,
+      token: gitHubToken,
       repositoryName,
       branch: core.getInput('branch') || 'gh-pages',
       folder: 'book',

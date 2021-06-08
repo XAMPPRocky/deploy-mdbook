@@ -82,7 +82,7 @@ function run() {
                     ? repository.full_name
                     : process_1.default.env.GITHUB_REPOSITORY;
             const deployOptions = {
-                accessToken: gitHubToken,
+                token: gitHubToken,
                 repositoryName,
                 branch: core.getInput('branch') || 'gh-pages',
                 folder: 'book',
