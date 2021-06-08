@@ -5,7 +5,7 @@ import * as core from '@actions/core'
 import * as exec from '@actions/exec'
 import {context} from '@actions/github'
 import {getGitHubRelease} from 'get-github-release'
-import deployToPages, * as gitHubPagesDeploy from 'github-pages-deploy-action'
+import deploy from '@jamesives/github-pages-deploy-action'
 
 export async function run(): Promise<void> {
   try {
@@ -42,11 +42,13 @@ export async function run(): Promise<void> {
       ? repository.full_name
       : process.env.GITHUB_REPOSITORY
 
-    const deployOptions: gitHubPagesDeploy.ActionInterface = {
+    const deployOptions = {
       accessToken: gitHubToken,
       repositoryName,
       branch: core.getInput('branch') || 'gh-pages',
       folder: 'book',
+      silent: false,
+      isTest: 0,
       workspace
     }
 
@@ -56,7 +58,7 @@ export async function run(): Promise<void> {
     if (core.getInput('build_only') === 'true') {
       // Do nothing...
     } else {
-      await deployToPages(deployOptions)
+      await deploy(deployOptions)
     }
   } catch (error) {
     core.setFailed(error.message)
